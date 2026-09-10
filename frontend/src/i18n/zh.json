@@ -1,0 +1,284 @@
+{
+  "nav": {
+    "home": "首页",
+    "upload": "上传重建",
+    "tasks": "任务列表",
+    "docs": "说明文档",
+    "login": "登录",
+    "logout": "退出",
+    "admin": "用户管理"
+  },
+  "home": {
+    "title": "溯影",
+    "subtitle": "3DGS 自动化重建平台",
+    "description": "上传图片，自动完成 3D 高斯泼溅重建，生成可交互的 3D 模型",
+    "start": "开始体验",
+    "viewTasks": "查看任务",
+    "features": "核心能力",
+    "feature1Title": "多方式上传",
+    "feature1Desc": "支持图片、文件夹、ZIP 压缩包等多种上传方式",
+    "feature2Title": "自动重建流水线",
+    "feature2Desc": "特征提取、训练、渲染全自动，实时查看进度",
+    "feature3Title": "3D 模型查看",
+    "feature3Desc": "内置高斯泼溅渲染器，支持接入 superspl.at 在线查看",
+    "feature4Title": "实时进度追踪",
+    "feature4Desc": "WebSocket 推送，清晰掌握每个阶段的状态",
+    "pipelineTitle": "重建流程",
+    "pipelineStep1": "上传图片",
+    "pipelineStep2": "特征提取",
+    "pipelineStep3": "模型训练",
+    "pipelineStep4": "渲染输出",
+    "pipelineStep5": "查看模型"
+  },
+  "upload": {
+    "title": "上传图片进行重建",
+    "subtitle": "选择图片、文件夹或 ZIP 压缩包，系统将自动生成重建编号",
+    "step1Title": "选择文件",
+    "step1Desc": "选择图片、文件夹或 ZIP 压缩包",
+    "step2Title": "配置编号",
+    "step2Desc": "可选，留空将自动生成",
+    "step3Title": "参数配置",
+    "step3Desc": "可选，留空使用默认参数",
+    "step4Title": "确认提交",
+    "step4Desc": "检查文件并开始重建任务",
+    "stepOf": "第 {{current}} 步 / 共 {{total}} 步",
+    "next": "下一步",
+    "prev": "上一步",
+    "goUpload": "重新选择",
+    "confirmFiles": "已选择 {{count}} 个文件",
+    "confirmReconId": "重建编号",
+    "confirmReconIdAuto": "自动生成",
+    "confirmSubmit": "确认并开始重建",
+    "dropzone": "拖拽文件到此处，或点击选择",
+    "selectImages": "选择图片",
+    "selectFolder": "选择文件夹",
+    "selectZip": "选择 ZIP",
+    "reconIdLabel": "重建编号（可选）",
+    "reconIdPlaceholder": "例如：scene_001",
+    "start": "开始重建",
+    "uploading": "上传中...",
+    "extractingZip": "正在解压 ZIP...",
+    "noImagesInZip": "ZIP 中没有有效图片",
+    "directProgress": "正在直传 OSS {{current}}/{{total}}",
+    "creatingTask": "正在创建任务...",
+    "localFallback": "OSS 未配置，改为上传到服务器",
+    "queuedNotice": "任务已创建",
+    "submitFailed": "上传失败，请检查后端服务是否启动",
+    "files": "已选文件",
+    "noFiles": "尚未选择文件",
+    "supported": "支持 JPG / PNG / BMP / TIFF",
+    "clear": "清空",
+    "success": "任务已入队，等待 3090 算力处理",
+    "taskId": "任务编号",
+    "params": {
+      "title": "训练参数配置",
+      "subtitle": "可选。留空使用默认值，鼠标悬停查看参数说明",
+      "groupBasic": "基础参数",
+      "groupAdvanced": "进阶参数（致密化）",
+      "groupQuality": "质量参数",
+      "groupVisual": "视觉参数",
+      "default": "默认",
+      "reset": "恢复默认",
+      "resetAll": "全部恢复默认",
+      "useDefault": "使用默认值",
+      "custom": "自定义",
+      "iterations": {
+        "label": "训练迭代次数",
+        "desc": "训练总迭代次数。值越大模型质量越好，但训练时间越长。建议 7000-30000。"
+      },
+      "resolution": {
+        "label": "分辨率缩放",
+        "desc": "输入图片分辨率缩放因子。-1 表示自动选择，1 为原分辨率，2 为缩小一半。值越大越精细但越慢。"
+      },
+      "sh_degree": {
+        "label": "球谐阶数",
+        "desc": "球谐函数阶数（0-3）。阶数越高视角相关颜色表达越丰富，但模型体积越大。"
+      },
+      "white_background": {
+        "label": "白色背景",
+        "desc": "使用白色背景而非黑色。适用于产品展示等场景。"
+      },
+      "eval": {
+        "label": "评测模式",
+        "desc": "将数据集分为训练集和测试集，用于评估模型质量。"
+      },
+      "densify_grad_threshold": {
+        "label": "致密化梯度阈值",
+        "desc": "致密化梯度阈值。值越小会产生更多高斯点，模型更精细但体积更大。"
+      },
+      "densification_interval": {
+        "label": "致密化间隔",
+        "desc": "致密化操作间隔（迭代次数）。每 N 次迭代执行一次致密化。"
+      },
+      "opacity_reset_interval": {
+        "label": "不透明度重置间隔",
+        "desc": "不透明度重置间隔（迭代次数）。定期重置所有高斯的不透明度，防止过拟合。"
+      },
+      "densify_from_iter": {
+        "label": "致密化开始迭代",
+        "desc": "开始致密化的迭代次数。在此之前不执行致密化操作。"
+      },
+      "densify_until_iter": {
+        "label": "致密化结束迭代",
+        "desc": "停止致密化的迭代次数。此后高斯点数量固定。"
+      },
+      "lambda_dssim": {
+        "label": "SSIM 损失权重",
+        "desc": "SSIM 损失权重（0-1）。值越大越注重结构相似性，值越小越注重像素级 L1 损失。"
+      },
+      "percent_dense": {
+        "label": "致密化密度阈值",
+        "desc": "致密化密度阈值百分比。控制哪些区域需要更多高斯点。"
+      },
+      "random_background": {
+        "label": "随机背景",
+        "desc": "训练时使用随机背景色，增强模型对背景的鲁棒性。"
+      },
+      "antialiasing": {
+        "label": "抗锯齿",
+        "desc": "启用抗锯齿，提升渲染边缘质量，但会增加训练时间。"
+      }
+    }
+  },
+  "tasks": {
+    "title": "重建任务列表",
+    "subtitle": "查看所有重建任务的状态与结果",
+    "empty": "暂无任务，去上传图片开始第一次重建吧",
+    "newTask": "新建任务",
+    "viewDetail": "查看详情",
+    "delete": "删除",
+    "confirmDelete": "确认删除此任务？相关文件将被清除。",
+    "searchPlaceholder": "搜索任务编号或重建编号",
+    "searchResults": "找到 {{count}} 个结果",
+    "searchEmpty": "未找到匹配 \"{{keyword}}\" 的任务",
+    "clearSearch": "清除",
+    "ossDirect": "浏览器直传",
+    "ossFailed": "直传失败",
+    "ossDismiss": "关闭",
+    "ossPendingId": "待分配",
+    "queue": {
+      "pending": "等待领取",
+      "running": "处理中",
+      "completed": "已完成",
+      "failed": "失败"
+    }
+  },
+  "step": {
+    "queued": "任务已入队，等待 3090 算力领取",
+    "workerClaimed": "已由 3090 worker 领取，开始拉取图片",
+    "uploading": "3090 worker 正在拉取 {{count}} 张图片",
+    "uploadDone": "图片拉取完成",
+    "converting": "正在进行特征提取、特征匹配与三角化重建",
+    "convertDone": "特征提取与重建完成",
+    "training": "正在进行 3DGS 模型训练（高斯泼溅）",
+    "trainDone": "模型训练完成",
+    "rendering": "正在渲染数据集",
+    "renderDone": "渲染完成",
+    "downloading": "正在定位生成的 ply 模型文件",
+    "downloadDone": "模型定位完成",
+    "oss_uploading": "正在上传生成的 ply 结果（OSS/服务器）",
+    "ossUploadDone": "PLY 结果已就绪，可在线查看",
+    "completed": "3DGS 重建全部完成，模型可查看",
+    "debugCompleted": "[调试模式] 3DGS 重建完成（模拟）",
+    "failed": "重建失败：{{message}}"
+  },
+  "detail": {
+    "title": "任务详情",
+    "reconId": "重建编号",
+    "taskId": "任务编号",
+    "status": "当前状态",
+    "progress": "整体进度",
+    "images": "图片数量",
+    "created": "创建时间",
+    "currentStep": "当前步骤",
+    "logs": "实时日志",
+    "model": "3D 模型",
+    "viewOnline": "在 superspl.at 中查看",
+    "download": "下载 PLY",
+    "back": "返回列表",
+    "stage": {
+      "pending": "等待领取",
+      "uploading": "拉取图片",
+      "converting": "特征提取与重建",
+      "training": "模型训练",
+      "rendering": "渲染数据集",
+      "downloading": "定位模型",
+      "oss_uploading": "OSS 上传",
+      "completed": "重建完成",
+      "failed": "重建失败"
+    },
+    "timings": {
+      "title": "阶段耗时",
+      "subtitle": "各重建阶段的实际耗时",
+      "upload": "拉取图片",
+      "convert": "COLMAP 位姿估计",
+      "train": "3DGS 训练",
+      "render": "模型渲染",
+      "download": "定位模型",
+      "oss_upload": "OSS 结果上传",
+      "total": "端到端总计",
+      "running": "进行中",
+      "pending": "待开始",
+      "noData": "暂无耗时数据",
+      "fallbackHint": "历史任务仅显示端到端总耗时，新建任务会记录各阶段明细"
+    },
+    "metrics": {
+      "title": "重建质量指标",
+      "subtitle": "来自 results.json 的评测结果（需启用 --eval）",
+      "psnr": "PSNR",
+      "ssim": "SSIM",
+      "lpips": "LPIPS",
+      "psnrHint": "峰值信噪比，越高越好（dB）",
+      "ssimHint": "结构相似性，越接近 1 越好",
+      "lpipsHint": "感知差异，越低越好",
+      "source": "数据来源"
+    },
+    "gpu": {
+      "title": "GPU 显存占用",
+      "subtitle": "3090 训练阶段采样",
+      "peak": "峰值占用",
+      "current": "当前占用",
+      "hint": "训练阶段 GPU 显存峰值 / 总量（GB）"
+    }
+  },
+  "viewer": {
+    "title": "3D 模型查看器",
+    "loading": "模型加载中...",
+    "error": "模型加载失败，请尝试在线查看器",
+    "onlineGuide": "点击下方按钮在新窗口打开 superspl.at 编辑器，拖入 PLY 文件即可查看",
+    "openExternal": "打开 superspl.at",
+    "downloadGuide": "或先下载 PLY 文件，再拖入在线查看器",
+    "noModel": "任务尚未完成，模型暂不可查看",
+    "webgl2Unsupported": "当前浏览器不支持 WebGL2，无法使用内置查看器。",
+    "webgl2Fallback": "请使用在线查看器或更换支持的浏览器。",
+    "onlineViewerTitle": "superspl.at 在线查看器"
+  },
+  "common": {
+    "confirm": "确认",
+    "cancel": "取消",
+    "loading": "加载中",
+    "error": "出错了",
+    "retry": "重试",
+    "language": "语言"
+  },
+  "auth": {
+    "title": "登录",
+    "subtitle": "账号由管理员开号，不开放注册",
+    "username": "用户名",
+    "password": "密码",
+    "submit": "登录",
+    "loginFailed": "登录失败"
+  },
+  "admin": {
+    "title": "用户管理",
+    "subtitle": "仅管理员可开号与禁用账号",
+    "create": "开号",
+    "role": "角色",
+    "status": "状态",
+    "actions": "操作",
+    "active": "正常",
+    "disabled": "已禁用",
+    "enable": "启用",
+    "disable": "禁用"
+  }
+}

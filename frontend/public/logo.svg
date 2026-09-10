@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="goldTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fce38a"/>
+      <stop offset="100%" stop-color="#f39c12"/>
+    </linearGradient>
+    <linearGradient id="goldLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e67e22"/>
+      <stop offset="100%" stop-color="#b9770e"/>
+    </linearGradient>
+    <linearGradient id="goldRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#9a7d0a"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- 背景圆形光晕 -->
+  <circle cx="64" cy="64" r="56" fill="#0a0a0a"/>
+  <circle cx="64" cy="64" r="52" fill="none" stroke="url(#goldTop)" stroke-width="1" opacity="0.3"/>
+
+  <!-- 3D 立方体：顶面 -->
+  <polygon points="64,18 104,38 64,58 24,38" fill="url(#goldTop)" stroke="#fce38a" stroke-width="0.5"/>
+  <!-- 3D 立方体：左面 -->
+  <polygon points="24,38 64,58 64,102 24,82" fill="url(#goldLeft)" stroke="#b9770e" stroke-width="0.5"/>
+  <!-- 3D 立方体：右面 -->
+  <polygon points="104,38 64,58 64,102 104,82" fill="url(#goldRight)" stroke="#9a7d0a" stroke-width="0.5"/>
+
+  <!-- 顶面高光 -->
+  <polygon points="64,18 104,38 64,58 24,38" fill="url(#goldTop)" opacity="0.4"/>
+
+  <!-- 边缘光效 -->
+  <polygon points="64,18 104,38 64,58 24,38" fill="none" stroke="#fff3c4" stroke-width="0.5" opacity="0.6"/>
+</svg>

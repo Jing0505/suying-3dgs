@@ -1,0 +1,284 @@
+{
+  "nav": {
+    "home": "Home",
+    "upload": "Upload",
+    "tasks": "Tasks",
+    "docs": "Docs",
+    "login": "Login",
+    "logout": "Logout",
+    "admin": "Users"
+  },
+  "home": {
+    "title": "Suying",
+    "subtitle": "3DGS Automated Reconstruction Platform",
+    "description": "Upload images to automatically perform 3D Gaussian Splatting reconstruction and generate interactive 3D models",
+    "start": "Get Started",
+    "viewTasks": "View Tasks",
+    "features": "Core Features",
+    "feature1Title": "Multi-Method Upload",
+    "feature1Desc": "Support images, folders, and ZIP archives",
+    "feature2Title": "Automated Pipeline",
+    "feature2Desc": "Feature extraction, training, and rendering fully automated with live progress",
+    "feature3Title": "3D Model Viewer",
+    "feature3Desc": "Built-in Gaussian splat renderer with superspl.at integration",
+    "feature4Title": "Real-time Tracking",
+    "feature4Desc": "WebSocket push for clear visibility of every stage",
+    "pipelineTitle": "Reconstruction Pipeline",
+    "pipelineStep1": "Upload Images",
+    "pipelineStep2": "Feature Extraction",
+    "pipelineStep3": "Model Training",
+    "pipelineStep4": "Rendering",
+    "pipelineStep5": "View Model"
+  },
+  "upload": {
+    "title": "Upload Images for Reconstruction",
+    "subtitle": "Select images, a folder, or a ZIP archive. A reconstruction ID will be generated automatically.",
+    "step1Title": "Select Files",
+    "step1Desc": "Choose images, a folder, or a ZIP archive",
+    "step2Title": "Configure ID",
+    "step2Desc": "Optional, auto-generated if empty",
+    "step3Title": "Parameters",
+    "step3Desc": "Optional, leave empty for defaults",
+    "step4Title": "Confirm & Submit",
+    "step4Desc": "Review files and start reconstruction",
+    "stepOf": "Step {{current}} of {{total}}",
+    "next": "Next",
+    "prev": "Back",
+    "goUpload": "Reselect",
+    "confirmFiles": "{{count}} files selected",
+    "confirmReconId": "Reconstruction ID",
+    "confirmReconIdAuto": "Auto-generated",
+    "confirmSubmit": "Confirm & Start Reconstruction",
+    "dropzone": "Drag files here, or click to select",
+    "selectImages": "Select Images",
+    "selectFolder": "Select Folder",
+    "selectZip": "Select ZIP",
+    "reconIdLabel": "Reconstruction ID (optional)",
+    "reconIdPlaceholder": "e.g. scene_001",
+    "start": "Start Reconstruction",
+    "uploading": "Uploading...",
+    "extractingZip": "Extracting ZIP...",
+    "noImagesInZip": "No valid images in the ZIP",
+    "directProgress": "Uploading to OSS {{current}}/{{total}}",
+    "creatingTask": "Creating task...",
+    "localFallback": "OSS is not configured; uploading to the server",
+    "queuedNotice": "Task created",
+    "submitFailed": "Upload failed. Check that the backend is running.",
+    "files": "Selected Files",
+    "noFiles": "No files selected",
+    "supported": "Supports JPG / PNG / BMP / TIFF",
+    "clear": "Clear",
+    "success": "Task queued, waiting for 3090 GPU worker",
+    "taskId": "Task ID",
+    "params": {
+      "title": "Training Parameters",
+      "subtitle": "Optional. Leave empty for defaults. Hover for details.",
+      "groupBasic": "Basic",
+      "groupAdvanced": "Advanced (Densification)",
+      "groupQuality": "Quality",
+      "groupVisual": "Visual",
+      "default": "Default",
+      "reset": "Reset",
+      "resetAll": "Reset All",
+      "useDefault": "Use Default",
+      "custom": "Custom",
+      "iterations": {
+        "label": "Iterations",
+        "desc": "Total training iterations. Higher means better quality but longer training. Recommended 7000-30000."
+      },
+      "resolution": {
+        "label": "Resolution Scale",
+        "desc": "Image resolution scale. -1 auto, 1 original, 2 half. Higher is finer but slower."
+      },
+      "sh_degree": {
+        "label": "SH Degree",
+        "desc": "Spherical harmonics degree (0-3). Higher gives richer view-dependent color but larger model."
+      },
+      "white_background": {
+        "label": "White Background",
+        "desc": "Use white background instead of black. Suitable for product showcases."
+      },
+      "eval": {
+        "label": "Evaluation Mode",
+        "desc": "Split dataset into train/test sets for quality evaluation."
+      },
+      "densify_grad_threshold": {
+        "label": "Densify Grad Threshold",
+        "desc": "Densification gradient threshold. Lower values produce more Gaussians - finer but larger."
+      },
+      "densification_interval": {
+        "label": "Densification Interval",
+        "desc": "Densification operation interval (iterations). Run every N iterations."
+      },
+      "opacity_reset_interval": {
+        "label": "Opacity Reset Interval",
+        "desc": "Opacity reset interval (iterations). Periodically reset to prevent overfitting."
+      },
+      "densify_from_iter": {
+        "label": "Densify From Iter",
+        "desc": "Iteration to start densification. No densification before this."
+      },
+      "densify_until_iter": {
+        "label": "Densify Until Iter",
+        "desc": "Iteration to stop densification. Gaussian count fixed after this."
+      },
+      "lambda_dssim": {
+        "label": "SSIM Loss Weight",
+        "desc": "SSIM loss weight (0-1). Higher values structural similarity, lower values pixel L1."
+      },
+      "percent_dense": {
+        "label": "Percent Dense",
+        "desc": "Densification density threshold percentage. Controls which regions need more Gaussians."
+      },
+      "random_background": {
+        "label": "Random Background",
+        "desc": "Use random background colors during training for robustness."
+      },
+      "antialiasing": {
+        "label": "Antialiasing",
+        "desc": "Enable antialiasing for better edge quality, but increases training time."
+      }
+    }
+  },
+  "tasks": {
+    "title": "Reconstruction Tasks",
+    "subtitle": "View the status and results of all reconstruction tasks",
+    "empty": "No tasks yet. Upload images to start your first reconstruction.",
+    "newTask": "New Task",
+    "viewDetail": "View Details",
+    "delete": "Delete",
+    "confirmDelete": "Delete this task? Related files will be removed.",
+    "searchPlaceholder": "Search by task ID or reconstruction ID",
+    "searchResults": "{{count}} result(s) found",
+    "searchEmpty": "No task matches \"{{keyword}}\"",
+    "clearSearch": "Clear",
+    "ossDirect": "Browser upload",
+    "ossFailed": "Direct upload failed",
+    "ossDismiss": "Dismiss",
+    "ossPendingId": "Pending",
+    "queue": {
+      "pending": "Waiting",
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "step": {
+    "queued": "Task queued, waiting for 3090 GPU worker",
+    "workerClaimed": "Claimed by 3090 worker, pulling images",
+    "uploading": "Worker is pulling {{count}} image(s)",
+    "uploadDone": "Images pulled",
+    "converting": "Running feature extraction, matching and triangulation",
+    "convertDone": "Feature extraction and reconstruction complete",
+    "training": "Running 3DGS model training (Gaussian Splatting)",
+    "trainDone": "Model training complete",
+    "rendering": "Rendering dataset",
+    "renderDone": "Rendering complete",
+    "downloading": "Locating generated PLY model",
+    "downloadDone": "Model located",
+    "oss_uploading": "Uploading PLY result (OSS/server)",
+    "ossUploadDone": "PLY result ready for viewing",
+    "completed": "3DGS reconstruction complete, model ready to view",
+    "debugCompleted": "[Debug mode] 3DGS reconstruction complete (simulated)",
+    "failed": "Reconstruction failed: {{message}}"
+  },
+  "detail": {
+    "title": "Task Details",
+    "reconId": "Reconstruction ID",
+    "taskId": "Task ID",
+    "status": "Status",
+    "progress": "Overall Progress",
+    "images": "Image Count",
+    "created": "Created At",
+    "currentStep": "Current Step",
+    "logs": "Live Logs",
+    "model": "3D Model",
+    "viewOnline": "View in superspl.at",
+    "download": "Download PLY",
+    "back": "Back to List",
+    "stage": {
+      "pending": "Waiting for worker",
+      "uploading": "Pulling Images",
+      "converting": "Feature Extraction",
+      "training": "Model Training",
+      "rendering": "Rendering Dataset",
+      "downloading": "Locating Model",
+      "oss_uploading": "OSS Upload",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "timings": {
+      "title": "Stage Timings",
+      "subtitle": "Actual duration of each reconstruction stage",
+      "upload": "Pulling Images",
+      "convert": "COLMAP Pose Estimation",
+      "train": "3DGS Training",
+      "render": "Model Rendering",
+      "download": "Locating Model",
+      "oss_upload": "OSS Result Upload",
+      "total": "End-to-End Total",
+      "running": "Running",
+      "pending": "Not Started",
+      "noData": "No timing data",
+      "fallbackHint": "Historical tasks show total time only. New tasks record per-stage breakdown."
+    },
+    "metrics": {
+      "title": "Reconstruction Quality",
+      "subtitle": "From results.json (requires --eval)",
+      "psnr": "PSNR",
+      "ssim": "SSIM",
+      "lpips": "LPIPS",
+      "psnrHint": "Peak Signal-to-Noise Ratio, higher is better (dB)",
+      "ssimHint": "Structural Similarity, closer to 1 is better",
+      "lpipsHint": "Perceptual difference, lower is better",
+      "source": "Source"
+    },
+    "gpu": {
+      "title": "GPU Memory Usage",
+      "subtitle": "Sampled during 3090 training",
+      "peak": "Peak",
+      "current": "Current",
+      "hint": "Peak / total GPU memory during training (GB)"
+    }
+  },
+  "viewer": {
+    "title": "3D Model Viewer",
+    "loading": "Loading model...",
+    "error": "Model loading failed. Try the online viewer.",
+    "onlineGuide": "Click the button below to open the superspl.at editor in a new window, then drag in the PLY file.",
+    "openExternal": "Open superspl.at",
+    "downloadGuide": "Or download the PLY file first, then drag it into the online viewer.",
+    "noModel": "Task not completed. Model is not available yet.",
+    "webgl2Unsupported": "Your browser does not support WebGL2. The built-in viewer is unavailable.",
+    "webgl2Fallback": "Please use the online viewer or switch to a supported browser.",
+    "onlineViewerTitle": "superspl.at Online Viewer"
+  },
+  "common": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "loading": "Loading",
+    "error": "Error",
+    "retry": "Retry",
+    "language": "Language"
+  },
+  "auth": {
+    "title": "Sign In",
+    "subtitle": "Accounts are created by an admin. Registration is closed.",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign In",
+    "loginFailed": "Sign-in failed"
+  },
+  "admin": {
+    "title": "User Management",
+    "subtitle": "Only admins can create or disable accounts",
+    "create": "Create user",
+    "role": "Role",
+    "status": "Status",
+    "actions": "Actions",
+    "active": "Active",
+    "disabled": "Disabled",
+    "enable": "Enable",
+    "disable": "Disable"
+  }
+}

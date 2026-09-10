@@ -1,0 +1,20 @@
+{
+  "server_url": "http://你的服务器IP:8000",
+  "api_key": "与服务器 .env 中的 WORKER_API_KEY 保持一致",
+  "worker_id": "3090-1",
+  "poll_interval": 30,
+  "project_root": "/home/omnispace/Projects/gaussian-splatting",
+  "data_root": "/home/omnispace/Projects/gaussian-splatting/data",
+  "output_root": "/home/omnispace/Projects/gaussian-splatting/output",
+  "conda_env": "gaussian_splatting",
+  "use_gpu": false,
+  "keep_files": false,
+  "report_iterations": true,
+  "oss": {
+    "access_key_id": "与服务器 .env 的 OSS_ACCESS_KEY_ID 一致（只写在 3090 上，不要提交 git）",
+    "access_key_secret": "与 OSS_ACCESS_KEY_SECRET 一致",
+    "bucket": "与 OSS_BUCKET 一致",
+    "endpoint": "与 OSS_ENDPOINT 一致",
+    "queue_prefix": "queue"
+  }
+}

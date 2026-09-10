@@ -1,0 +1,38 @@
+# ===== Secrets（含真实 OSS 密钥，绝不可上传） =====
+backend/.env
+.env
+frontend/.env.local
+
+# ===== Python 环境（venv） =====
+backend/.venv/
+backend/venv/
+suying-3dgs/
+__pycache__/
+*.pyc
+
+# ===== 大文件 / 模型输出（.ply 等） =====
+backend/storage/
+*.ply
+
+# ===== 日志 =====
+*.log
+
+# ===== WorkBuddy / TRAE 内部（项目记忆，不进仓库） =====
+.workbuddy/
+.trae/
+
+# ===== 前端依赖 / 构建产物 =====
+node_modules/
+frontend/dist/
+
+# ===== 含凭证/内网信息的运行时配置（只提交 example 版） =====
+backend/worker/worker_config.json
+
+# ===== 误入的空垃圾文件 =====
+frontend/npm
+
+# ===== IDE / 系统 =====
+.idea/
+.vscode/
+.DS_Store
+*.swp

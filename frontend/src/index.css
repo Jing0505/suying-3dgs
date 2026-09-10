@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4a017 #171717;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #d4a017;
+  /* brutalist: 直角滚动条 */
+  border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #e0c455;
+}
+
+@layer base {
+  body {
+    @apply bg-ink-500 text-warm;
+    /* brutalist: 青铜色蓝图网格背景 */
+    background-image:
+      linear-gradient(rgba(140, 107, 62, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(140, 107, 62, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .gold-text {
+    @apply text-gold-300;
+  }
+
+  .gold-border {
+    @apply border border-gold-400/40;
+  }
+
+  /* brutalist: 直角卡片，青铜边框 */
+  .gold-card {
+    @apply border border-bronze-400/30 bg-ink-300/80 transition-colors duration-200;
+  }
+
+  /* brutalist: 直角按钮，金色硬质 */
+  .gold-btn {
+    @apply inline-flex items-center justify-center gap-2 border border-gold-400 bg-gold-400 px-6 py-3 font-semibold uppercase tracking-wider text-ink-900 transition-colors duration-150 hover:bg-gold-300 active:bg-gold-500 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .gold-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-bronze-400/60 bg-transparent px-6 py-3 font-medium uppercase tracking-wider text-gold-300 transition-colors duration-150 hover:border-gold-400 hover:bg-gold-400/10 active:bg-gold-400/20;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+
+  /* brutalist: CRT 扫描线，用于日志/终端区 */
+  .crt-scanlines {
+    position: relative;
+  }
+  .crt-scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 55, 0.025) 2px,
+      rgba(212, 175, 55, 0.025) 4px
+    );
+    z-index: 1;
+  }
+
+  /* brutalist: 蓝图网格分隔线 */
+  .grid-divider {
+    @apply border-gold-400/15;
+  }
+}
+
+@layer utilities {
+  /* 滚动出现动效（克制的 fade-up） */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+
+  /* 进度条流光 */
+  @keyframes progress-shine {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .progress-shine {
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: progress-shine 2s linear infinite;
+  }
+
+  /* brutalist: 闪烁光标 */
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+}
+
+/* 尊重用户的减少动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
